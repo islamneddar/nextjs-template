@@ -1,0 +1,56 @@
+{
+  "name": "Next.js Template with shadcn/ui",
+  "description": "A modern Next.js template using shadcn/ui components and Tailwind CSS",
+  "techStack": {
+    "framework": "Next.js 15.3.3",
+    "ui": {
+      "components": "shadcn/ui (New York style)",
+      "styling": "Tailwind CSS v4.1.8",
+      "icons": "lucide-react"
+    },
+    "language": "TypeScript",
+    "utilities": [
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+      "tailwindcss-animate"
+    ]
+  },
+  "rules": {
+    "components": {
+      "location": "src/components",
+      "ui": "src/components/ui",
+      "naming": "PascalCase",
+      "imports": "Use @/components alias"
+    },
+    "styling": {
+      "framework": "Tailwind CSS",
+      "theme": "Custom OKLCH color scheme",
+      "darkMode": "class-based",
+      "customization": "Use CSS variables in globals.css"
+    },
+    "bestPractices": [
+      "Use shadcn/ui components from @/components/ui",
+      "Follow the New York style design system",
+      "Use Tailwind classes for custom styling",
+      "Implement dark mode using the 'dark' class",
+      "Use Lucide icons from lucide-react",
+      "Follow TypeScript best practices",
+      "Use CSS variables for theming"
+    ],
+    "fileStructure": {
+      "components": "src/components",
+      "pages": "src/app",
+      "styles": "src/app/globals.css",
+      "utils": "src/lib/utils",
+      "hooks": "src/hooks"
+    }
+  },
+  "aliases": {
+    "@": "src",
+    "@components": "src/components",
+    "@ui": "src/components/ui",
+    "@lib": "src/lib",
+    "@hooks": "src/hooks"
+  }
+} 
