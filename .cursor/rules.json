@@ -31,7 +31,7 @@
     },
     "bestPractices": [
       "Use shadcn/ui components from @/components/ui",
-      "Follow the New York style design system",
+      "Follow the Gray style design system",
       "Use Tailwind classes for custom styling",
       "Implement dark mode using the 'dark' class",
       "Use Lucide icons from lucide-react",
