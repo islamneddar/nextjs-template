@@ -4,7 +4,7 @@
   "techStack": {
     "framework": "Next.js 15.3.3",
     "ui": {
-      "components": "shadcn/ui (New York style)",
+      "components": "shadcn/ui (Gray style)",
       "styling": "Tailwind CSS v4.1.8",
       "icons": "lucide-react"
     },
@@ -17,7 +17,51 @@
       "location": "src/components",
       "ui": "src/components/ui",
       "naming": "PascalCase",
-      "imports": "Use @/components alias"
+      "imports": "Use @/components alias",
+      "shadcn": {
+        "installation": "Use shadcn-ui CLI: npx shadcn-ui@latest add [component-name]",
+        "usage": "Always prefer shadcn/ui components over custom ones",
+        "customization": "Use the components.json configuration for theming",
+        "available": [
+          "accordion",
+          "alert",
+          "alert-dialog",
+          "aspect-ratio",
+          "avatar",
+          "badge",
+          "button",
+          "calendar",
+          "card",
+          "checkbox",
+          "collapsible",
+          "command",
+          "context-menu",
+          "dialog",
+          "dropdown-menu",
+          "form",
+          "hover-card",
+          "input",
+          "label",
+          "menubar",
+          "navigation-menu",
+          "popover",
+          "progress",
+          "radio-group",
+          "scroll-area",
+          "select",
+          "separator",
+          "sheet",
+          "skeleton",
+          "slider",
+          "switch",
+          "table",
+          "tabs",
+          "textarea",
+          "toast",
+          "toggle",
+          "tooltip"
+        ]
+      }
     },
     "styling": {
       "framework": "Tailwind CSS",
@@ -57,7 +101,8 @@
       "Follow TypeScript best practices",
       "Use CSS variables for theming",
       "Format code with Prettier before committing",
-      "Run ESLint before committing"
+      "Run ESLint before committing",
+      "Install new shadcn/ui components using the CLI"
     ],
     "fileStructure": {
       "components": "src/components",
