@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "badge": "2025",
+    "badgeText": "🎉 Happy New Year",
+    "title": {
+      "highlight": "Ship Any",
+      "main": "AI Startups",
+      "sub": "in hours, not days"
+    },
+    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
+    "cta": {
+      "primary": {
+        "text": "Get Started",
+        "href": "/dashboard"
+      },
+      "secondary": {
+        "text": "Read Document",
+        "href": "/docs"
+      }
+    },
+    "promotion": {
+      "text": "$100 off for the first 1000 customers",
+      "icon": "🎁"
+    }
+  },
+  "features": {
+    "title": "Key Features of ShipAny",
+    "subtitle": "Everything you need to launch your AI SaaS startup quickly and efficiently.",
+    "items": [
+      {
+        "icon": "nextjs",
+        "title": "Next.js Boilerplate",
+        "description": "Production-ready Next.js templates with SEO-friendly structure and i18n support."
+      },
+      {
+        "icon": "auth",
+        "title": "Authentication & Payments",
+        "description": "Integrated Google OAuth, one-tap login, and Stripe payment processing."
+      },
+      {
+        "icon": "database",
+        "title": "Data Infrastructure",
+        "description": "Built-in Supabase integration for reliable and scalable data storage."
+      },
+      {
+        "icon": "deploy",
+        "title": "One-Click Deployment",
+        "description": "Seamless deployment to Vercel or Cloudflare with automated setup."
+      },
+      {
+        "icon": "analytics",
+        "title": "Business Analytics",
+        "description": "Integrated Google Analytics and Search Console for tracking growth."
+      },
+      {
+        "icon": "ai",
+        "title": "AI-Ready Infrastructure",
+        "description": "Pre-configured AI integration with built-in credits system and API sales."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Get all features of ShipAny, Ship your AI SaaS startups fast.",
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "199",
+        "originalPrice": "299",
+        "description": "Get started with your first SaaS startup.",
+        "features": [
+          "NextJS boilerplate",
+          "SEO-friendly structure",
+          "Blog & CMS",
+          "Payment with Stripe",
+          "Data storage with Supabase",
+          "Google OAuth & One-Tap Login",
+          "i18n support"
+        ],
+        "cta": "Get ShipAny"
+      },
+      {
+        "name": "Standard",
+        "price": "249",
+        "originalPrice": "349",
+        "description": "Ship Fast with your SaaS Startups.",
+        "popular": true,
+        "features": [
+          "Deploy with Vercel or Cloudflare",
+          "Generation of Privacy & Terms",
+          "Google Analytics Integration",
+          "Google Search Console Integration",
+          "Discord community",
+          "Technical support for your first ship",
+          "Lifetime updates"
+        ],
+        "cta": "Get ShipAny"
+      },
+      {
+        "name": "Premium",
+        "price": "299",
+        "originalPrice": "399",
+        "description": "Ship Any AI SaaS Startups.",
+        "features": [
+          "More Components for choosing",
+          "Business Functions & SDK with AI",
+          "User Console",
+          "Admin System",
+          "Credits Management",
+          "API Keys Management",
+          "Priority Technical Support"
+        ],
+        "cta": "Get ShipAny"
+      }
+    ]
+  }
+}
