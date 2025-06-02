@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { signIn } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -23,6 +24,9 @@ import { type LoginInput, loginSchema } from '@/lib/api/auth';
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
@@ -39,6 +43,7 @@ export default function LoginPage() {
         email: data.email,
         password: data.password,
         redirect: false,
+        callbackUrl: callbackUrl || '/dashboard',
       });
 
       if (result?.error) {
@@ -46,8 +51,11 @@ export default function LoginPage() {
         return;
       }
 
-      // Force a hard navigation to the dashboard
-      window.location.href = '/dashboard';
+      if (result?.ok) {
+        // Use Next.js router for navigation
+        router.push(callbackUrl);
+        router.refresh(); // Refresh to ensure the new auth state is picked up
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     }

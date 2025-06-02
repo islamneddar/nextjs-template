@@ -31,7 +31,6 @@ export const authService = {
     // Mock successful login
     return {
       user: MOCK_USER,
-      token: 'mock-jwt-token',
     };
   },
 };
