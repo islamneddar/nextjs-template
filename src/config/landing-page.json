@@ -1,116 +1,146 @@
 {
   "hero": {
-    "badge": "2025",
-    "badgeText": "🎉 Happy New Year",
+    "badge": "New",
+    "badgeText": "Introducing ShipAny v1.0",
     "title": {
-      "highlight": "Ship Any",
-      "main": "AI Startups",
-      "sub": "in hours, not days"
+      "highlight": "Ship Faster.",
+      "main": "Scale Better.",
+      "sub": "With ShipAny"
     },
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
+    "description": "The ultimate SaaS boilerplate that helps you launch your product in days, not months. Built with Next.js 14, React, Tailwind CSS, and more.",
     "cta": {
       "primary": {
         "text": "Get Started",
-        "href": "/dashboard"
+        "href": "#pricing"
       },
       "secondary": {
-        "text": "Read Document",
-        "href": "/docs"
+        "text": "Live Demo",
+        "href": "/demo"
       }
     },
     "promotion": {
-      "text": "$100 off for the first 1000 customers",
-      "icon": "🎁"
+      "text": "Special launch pricing - Save 50% today!",
+      "icon": "🚀"
     }
   },
   "features": {
-    "title": "Key Features of ShipAny",
-    "subtitle": "Everything you need to launch your AI SaaS startup quickly and efficiently.",
+    "title": "Everything you need to build a SaaS",
+    "subtitle": "ShipAny comes with all the features you need to launch your SaaS product. Focus on your business logic, we'll handle the rest.",
     "items": [
       {
-        "icon": "nextjs",
-        "title": "Next.js Boilerplate",
-        "description": "Production-ready Next.js templates with SEO-friendly structure and i18n support."
+        "title": "Next.js 14",
+        "description": "Built with the latest version of Next.js, featuring server components, server actions, and more.",
+        "icon": "nextjs"
       },
       {
-        "icon": "auth",
-        "title": "Authentication & Payments",
-        "description": "Integrated Google OAuth, one-tap login, and Stripe payment processing."
+        "title": "Authentication",
+        "description": "Secure authentication with email/password, magic links, and social providers.",
+        "icon": "auth"
       },
       {
-        "icon": "database",
-        "title": "Data Infrastructure",
-        "description": "Built-in Supabase integration for reliable and scalable data storage."
+        "title": "Database & ORM",
+        "description": "Type-safe database operations with Prisma ORM and your choice of database.",
+        "icon": "database"
       },
       {
-        "icon": "deploy",
-        "title": "One-Click Deployment",
-        "description": "Seamless deployment to Vercel or Cloudflare with automated setup."
+        "title": "Deployment Ready",
+        "description": "One-click deployment to Vercel with environment variable configuration.",
+        "icon": "deploy"
       },
       {
-        "icon": "analytics",
-        "title": "Business Analytics",
-        "description": "Integrated Google Analytics and Search Console for tracking growth."
+        "title": "Analytics",
+        "description": "Track user behavior and business metrics with built-in analytics.",
+        "icon": "analytics"
       },
       {
-        "icon": "ai",
-        "title": "AI-Ready Infrastructure",
-        "description": "Pre-configured AI integration with built-in credits system and API sales."
+        "title": "AI Ready",
+        "description": "Integrate AI capabilities with pre-built components and APIs.",
+        "icon": "ai"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Loved by developers",
+    "subtitle": "Don't just take our word for it - hear from developers who have built their SaaS with ShipAny",
+    "testimonials": [
+      {
+        "content": "ShipAny saved us months of development time. The code quality is excellent, and the documentation is comprehensive. Highly recommended!",
+        "author": {
+          "name": "Sarah Chen",
+          "role": "CTO at TechFlow",
+          "avatar": "/testimonials/avatar-1.webp"
+        },
+        "rating": 5
+      },
+      {
+        "content": "We launched our MVP in just two weeks using ShipAny. The authentication and billing integration worked flawlessly out of the box.",
+        "author": {
+          "name": "Michael Rodriguez",
+          "role": "Founder at DataPulse",
+          "avatar": "/testimonials/avatar-2.webp"
+        },
+        "rating": 5
+      },
+      {
+        "content": "The best investment we made for our startup. The code structure and patterns used are top-notch. It's like having a senior developer on the team.",
+        "author": {
+          "name": "Emily Taylor",
+          "role": "Lead Developer at CloudStack",
+          "avatar": "/testimonials/avatar-3.webp"
+        },
+        "rating": 5
       }
     ]
   },
   "pricing": {
-    "title": "Pricing",
-    "subtitle": "Get all features of ShipAny, Ship your AI SaaS startups fast.",
+    "title": "Simple, transparent pricing",
+    "subtitle": "Get started with ShipAny today and save countless hours of development time.",
     "plans": [
       {
         "name": "Starter",
+        "price": "99",
+        "originalPrice": "199",
+        "description": "Perfect for side projects and MVPs",
+        "features": [
+          "Next.js 14 codebase",
+          "Authentication system",
+          "Database integration",
+          "Basic analytics",
+          "Email templates",
+          "Community support"
+        ],
+        "cta": "Buy Now"
+      },
+      {
+        "name": "Pro",
         "price": "199",
-        "originalPrice": "299",
-        "description": "Get started with your first SaaS startup.",
-        "features": [
-          "NextJS boilerplate",
-          "SEO-friendly structure",
-          "Blog & CMS",
-          "Payment with Stripe",
-          "Data storage with Supabase",
-          "Google OAuth & One-Tap Login",
-          "i18n support"
-        ],
-        "cta": "Get ShipAny"
-      },
-      {
-        "name": "Standard",
-        "price": "249",
-        "originalPrice": "349",
-        "description": "Ship Fast with your SaaS Startups.",
-        "popular": true,
-        "features": [
-          "Deploy with Vercel or Cloudflare",
-          "Generation of Privacy & Terms",
-          "Google Analytics Integration",
-          "Google Search Console Integration",
-          "Discord community",
-          "Technical support for your first ship",
-          "Lifetime updates"
-        ],
-        "cta": "Get ShipAny"
-      },
-      {
-        "name": "Premium",
-        "price": "299",
         "originalPrice": "399",
-        "description": "Ship Any AI SaaS Startups.",
+        "description": "Best for growing startups",
         "features": [
-          "More Components for choosing",
-          "Business Functions & SDK with AI",
-          "User Console",
-          "Admin System",
-          "Credits Management",
-          "API Keys Management",
-          "Priority Technical Support"
+          "Everything in Starter",
+          "Team management",
+          "Advanced analytics",
+          "AI capabilities",
+          "Priority support",
+          "1 hour onboarding call"
         ],
-        "cta": "Get ShipAny"
+        "cta": "Buy Now",
+        "popular": true
+      },
+      {
+        "name": "Enterprise",
+        "price": "399",
+        "originalPrice": "799",
+        "description": "For large-scale applications",
+        "features": [
+          "Everything in Pro",
+          "Custom integrations",
+          "Dedicated support",
+          "Security audit",
+          "Performance optimization",
+          "Architecture review"
+        ],
+        "cta": "Contact Sales"
       }
     ]
   }

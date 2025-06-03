@@ -30,7 +30,7 @@ interface HeroProps {
 export function Hero({ data }: HeroProps) {
   return (
     <div className="relative isolate px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
+      <div className="mx-auto max-w-4xl pt-32 sm:pt-48 lg:pt-64 lg:pb-32">
         <div className="text-center">
           {/*<div className="mb-8 flex justify-center">
             <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-sm font-semibold">
