@@ -12,17 +12,22 @@ import landingContent from '@/config/landing-page.json';
 
 export default function LandingPage() {
   return (
-    <main className="relative">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <Hero data={landingContent.hero} />
-      <Technologies />
-      <ValueProposition />
-      <Features data={landingContent.features} />
-      <HowToUse />
-      <Testimonials data={landingContent.testimonials} />
-      <Pricing data={landingContent.pricing} />
-      <FAQ data={landingContent.faq} />
+      <main className="flex-1">
+        <Hero data={landingContent.hero} />
+
+        <div className="space-y-24 py-24 sm:space-y-32 sm:py-32">
+          <Technologies />
+          <ValueProposition />
+          <Features data={landingContent.features} />
+          <HowToUse />
+          <Testimonials data={landingContent.testimonials} />
+          <Pricing data={landingContent.pricing} />
+          <FAQ data={landingContent.faq} />
+        </div>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

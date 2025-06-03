@@ -1,3 +1,7 @@
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 interface HeroProps {
@@ -29,33 +33,52 @@ interface HeroProps {
 
 export function Hero({ data }: HeroProps) {
   return (
-    <div className="relative isolate px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl pt-32 sm:pt-48 lg:pt-64 lg:pb-32">
-        <div className="text-center">
-          {/*<div className="mb-8 flex justify-center">
-            <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-sm font-semibold">
-              {data.badge} <span className="ml-2">{data.badgeText}</span>
+    <div className="relative isolate">
+      {/* Background gradient */}
+      <div
+        className="absolute inset-x-0 top-0 -z-10 h-[1000px] overflow-hidden bg-gradient-to-r from-background via-muted/20 to-background"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Badge */}
+          <div className="mb-8 flex justify-center">
+            <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-sm">
+              <span className="font-semibold text-primary">{data.badge}</span>
+              <span className="ml-1 text-muted-foreground">{data.badgeText}</span>
             </Badge>
-          </div>*/}
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
-            <span className="text-primary">{data.title.highlight}</span> {data.title.main}
-            <br />
-            <span className="text-muted-foreground">{data.title.sub}</span>
+          </div>
+
+          {/* Title */}
+          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-primary">{data.title.highlight}</span>{' '}
+            <span className="block">{data.title.main}</span>{' '}
+            <span className="block text-muted-foreground">{data.title.sub}</span>
           </h1>
-          <p className="mt-8 text-xl leading-8 text-muted-foreground max-w-2xl mx-auto">
+
+          {/* Description */}
+          <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
             {data.description}
           </p>
-          <div className="mt-8 flex items-center justify-center gap-x-6">
-            <Button size="lg" className="text-xl" asChild>
-              <a href={data.cta.primary.href}>{data.cta.primary.text}</a>
+
+          {/* Call to action */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button asChild size="lg" className="min-w-[200px] text-base">
+              <Link href={data.cta.primary.href}>
+                {data.cta.primary.text}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="text-xl" asChild>
-              <a href={data.cta.secondary.href}>{data.cta.secondary.text}</a>
+            <Button asChild variant="outline" size="lg" className="min-w-[200px] text-base">
+              <Link href={data.cta.secondary.href}>{data.cta.secondary.text}</Link>
             </Button>
           </div>
-          <div className="mt-8 flex items-center justify-center text-sm">
-            <span className="mr-2">{data.promotion.icon}</span>
-            {data.promotion.text}
+
+          {/* Promotion */}
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <span>{data.promotion.icon}</span>
+            <span>{data.promotion.text}</span>
           </div>
         </div>
       </div>

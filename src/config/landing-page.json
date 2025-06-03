@@ -28,34 +28,24 @@
     "subtitle": "ShipAny comes with all the features you need to launch your SaaS product. Focus on your business logic, we'll handle the rest.",
     "items": [
       {
-        "title": "Next.js 14",
+        "title": "Modern Development",
         "description": "Built with the latest version of Next.js, featuring server components, server actions, and more.",
-        "icon": "nextjs"
+        "icon": "Code"
       },
       {
-        "title": "Authentication",
+        "title": "Secure Authentication",
         "description": "Secure authentication with email/password, magic links, and social providers.",
-        "icon": "auth"
+        "icon": "Lock"
       },
       {
-        "title": "Database & ORM",
-        "description": "Type-safe database operations with Prisma ORM and your choice of database.",
-        "icon": "database"
+        "title": "Beautiful Dashboard",
+        "description": "Modern and responsive dashboard with charts, tables, and customizable widgets.",
+        "icon": "LayoutDashboard"
       },
       {
-        "title": "Deployment Ready",
-        "description": "One-click deployment to Vercel with environment variable configuration.",
-        "icon": "deploy"
-      },
-      {
-        "title": "Analytics",
-        "description": "Track user behavior and business metrics with built-in analytics.",
-        "icon": "analytics"
-      },
-      {
-        "title": "AI Ready",
-        "description": "Integrate AI capabilities with pre-built components and APIs.",
-        "icon": "ai"
+        "title": "Dark Mode Support",
+        "description": "Built-in dark mode support with easy theme customization options.",
+        "icon": "Moon"
       }
     ]
   },
