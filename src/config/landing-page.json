@@ -143,5 +143,31 @@
         "cta": "Contact Sales"
       }
     ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our template",
+    "questions": [
+      {
+        "question": "What technologies does this template use?",
+        "answer": "Our template is built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui components. For authentication, we use Auth.js (formerly NextAuth.js), and the dashboard features various modern React patterns and best practices."
+      },
+      {
+        "question": "Do I need to pay for updates?",
+        "answer": "No, once you purchase the template, you get free access to all future updates. We regularly improve the template with new features and security updates."
+      },
+      {
+        "question": "Can I use this template for client projects?",
+        "answer": "Yes! You can use this template for both personal and client projects. Each purchase includes a license for one project."
+      },
+      {
+        "question": "What kind of support do you provide?",
+        "answer": "We provide comprehensive documentation, code examples, and community support through GitHub discussions. Pro and Enterprise plans include priority support with faster response times."
+      },
+      {
+        "question": "Is it easy to customize the template?",
+        "answer": "Absolutely! The template is built with customization in mind. All components are well-documented and use Tailwind CSS for styling, making it easy to modify the look and feel to match your brand."
+      }
+    ]
   }
 }
