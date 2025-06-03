@@ -21,7 +21,7 @@ interface TestimonialsProps {
 
 export function Testimonials({ data }: TestimonialsProps) {
   return (
-    <div className="py-16 sm:py-24">
+    <div className="relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{data.title}</h2>
@@ -29,7 +29,7 @@ export function Testimonials({ data }: TestimonialsProps) {
         </div>
 
         {/* Scrollable container */}
-        <div className="relative mt-16">
+        <div className="relative mt-12">
           {/* Gradient fades */}
           <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent" />

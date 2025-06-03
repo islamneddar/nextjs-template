@@ -17,7 +17,7 @@ export default function LandingPage() {
       <main className="flex-1">
         <Hero data={landingContent.hero} />
 
-        <div className="space-y-24 py-24 sm:space-y-32 sm:py-32">
+        <div className="space-y-16 py-16 sm:space-y-20 sm:py-20">
           <Technologies />
           <ValueProposition />
           <Features data={landingContent.features} />
