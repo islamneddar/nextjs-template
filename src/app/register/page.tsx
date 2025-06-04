@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -19,46 +19,48 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { type LoginInput, loginSchema } from '@/lib/api/auth';
+import { type RegisterInput, authService, registerSchema } from '@/lib/api/auth';
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
-  const form = useForm<LoginInput>({
-    resolver: zodResolver(loginSchema),
+  const form = useForm<RegisterInput>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       email: '',
       password: '',
+      confirmPassword: '',
     },
   });
 
-  const onSubmit = async (data: LoginInput) => {
+  const onSubmit = async (data: RegisterInput) => {
     try {
       setError(null);
+      // Register the user
+      await authService.register(data);
+
+      // After successful registration, sign in the user
       const result = await signIn('credentials', {
         email: data.email,
         password: data.password,
         redirect: false,
-        callbackUrl: callbackUrl || '/dashboard',
+        callbackUrl: '/dashboard',
       });
 
       if (result?.error) {
-        setError('Invalid email or password');
+        setError('Failed to sign in after registration');
         return;
       }
 
       if (result?.ok) {
-        // Use Next.js router for navigation
-        router.push(callbackUrl);
-        router.refresh(); // Refresh to ensure the new auth state is picked up
+        router.push('/dashboard');
+        router.refresh();
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'An error occurred during registration');
     }
   };
 
@@ -66,12 +68,9 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Sign in to your account</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">Create your account</CardTitle>
           <CardDescription className="text-center">
-            Don&apos;t have an account?{' '}
-            <Link href="/register" className="font-medium text-primary hover:text-primary/90">
-              Create one
-            </Link>
+            Enter your details below to create your account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -106,8 +105,8 @@ export default function LoginPage() {
                       <div className="relative">
                         <Input
                           type={showPassword ? 'text' : 'password'}
-                          autoComplete="current-password"
-                          placeholder="Enter your password"
+                          autoComplete="new-password"
+                          placeholder="Create a password"
                           {...field}
                         />
                         <Button
@@ -130,37 +129,60 @@ export default function LoginPage() {
                 )}
               />
 
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Input
+                          type={showConfirmPassword ? 'text' : 'password'}
+                          autoComplete="new-password"
+                          placeholder="Confirm your password"
+                          {...field}
+                        />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        >
+                          {showConfirmPassword ? (
+                            <EyeOff className="h-4 w-4 text-gray-400" />
+                          ) : (
+                            <Eye className="h-4 w-4 text-gray-400" />
+                          )}
+                        </Button>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               {error && (
                 <div className="rounded-md bg-destructive/10 p-4">
                   <p className="text-sm text-destructive">{error}</p>
                 </div>
               )}
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-                  />
-                  <Label htmlFor="remember-me" className="text-sm font-normal">
-                    Remember me
-                  </Label>
-                </div>
-
-                <Button variant="link" className="px-0 font-normal">
-                  Forgot your password?
-                </Button>
-              </div>
-
               <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
                 {form.formState.isSubmitting ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  'Sign in'
+                  'Create account'
                 )}
               </Button>
+
+              <div className="text-center text-sm">
+                Already have an account?{' '}
+                <Link href="/login" className="font-medium text-primary hover:text-primary/90">
+                  Sign in
+                </Link>
+              </div>
             </form>
           </Form>
         </CardContent>

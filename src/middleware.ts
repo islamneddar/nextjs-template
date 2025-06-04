@@ -2,18 +2,20 @@ import { NextResponse } from 'next/server';
 
 import { auth } from '@/lib/auth';
 
+// Auth pages that should be accessible to non-authenticated users
+const authPages = ['/login', '/register'];
+
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
-  const isAuthPage = nextUrl.pathname.startsWith('/login');
+  const isAuthPage = authPages.some((page) => nextUrl.pathname.startsWith(page));
 
-  if (isAuthPage) {
-    if (isLoggedIn) {
-      return NextResponse.redirect(new URL('/dashboard', nextUrl));
-    }
-    return undefined;
+  // If on an auth page and logged in, redirect to dashboard
+  if (isAuthPage && isLoggedIn) {
+    return NextResponse.redirect(new URL('/dashboard', nextUrl));
   }
 
+  // If not on an auth page and not logged in, redirect to login
   if (!isLoggedIn && !isAuthPage) {
     let callbackUrl = nextUrl.pathname;
     if (nextUrl.search) {
@@ -30,11 +32,11 @@ export default auth((req) => {
 // Specify which routes to run the middleware on
 export const config = {
   matcher: [
-    // Match only our application routes
-    '/',
-    '/dashboard/:path*',
-    '/login',
-    // Exclude all other paths
+    // Match all routes except api, static files, etc.
     '/((?!api|_next|_vercel|.*\\..*).*)',
+    // Include specific auth and app routes
+    '/login',
+    '/register',
+    '/dashboard/:path*',
   ],
 };
