@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 
+import { Card, CardContent } from '@/components/ui/card';
+
 const steps = [
   {
     title: 'Purchase Boilerplate',
@@ -26,89 +28,131 @@ const steps = [
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
 export function HowToUse() {
   return (
-    <div className="overflow-hidden">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">How to Use ShipAny</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+    <div className="relative">
+      {/* Background gradient */}
+      <div className="absolute inset-0 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl"
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            How to Use ShipAny
+          </h2>
+          <p className="mt-6 text-xl leading-8 text-muted-foreground">
             Get your SaaS up and running in four simple steps
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-8 relative">
-          {/* Progress Line */}
+        {/* Timeline container */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative mx-auto mt-16 max-w-5xl"
+        >
+          {/* Horizontal line for larger screens */}
           <motion.div
-            className="absolute left-[50%] top-0 h-full w-0.5 bg-muted"
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
             viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute left-0 right-0 top-[88px] hidden h-0.5 bg-primary/10 lg:block"
           />
 
-          <div className="relative space-y-6">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                className={`flex items-center gap-6 ${index % 2 === 0 ? 'justify-end' : ''}`}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? 100 : -100,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                }}
-              >
-                <div
-                  className={`w-full lg:w-[300px] ${index % 2 === 0 ? 'text-right' : 'order-last'}`}
-                >
-                  <motion.div
-                    className="bg-card rounded-xl p-4 shadow-lg ring-1 ring-gray-900/5"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      {index % 2 === 0 ? (
-                        <>
-                          <h3 className="flex-1 text-base font-semibold">{step.title}</h3>
-                          <span className="text-2xl">{step.icon}</span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="text-2xl">{step.icon}</span>
-                          <h3 className="flex-1 text-base font-semibold">{step.title}</h3>
-                        </>
-                      )}
-                    </div>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </motion.div>
-                </div>
+          {/* Vertical line for mobile */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            viewport={{ once: true }}
+            className="absolute bottom-0 left-[27px] top-0 w-0.5 bg-primary/10 lg:hidden"
+          />
 
+          <div className="relative grid gap-12 lg:grid-cols-4 lg:gap-8">
+            {steps.map((step, index) => (
+              <motion.div key={step.title} variants={item} className="relative pl-16 lg:pl-0">
+                {/* Timeline dot */}
                 <motion.div
-                  className="relative flex h-4 w-4 items-center justify-center"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
+                  transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    delay: index * 0.2 + 0.3,
-                  }}
+                  className="absolute left-0 top-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/20 bg-background lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-0"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  <div className="absolute h-3 w-3 rounded-full border border-primary animate-ping" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-xl">
+                    {step.icon}
+                  </div>
                 </motion.div>
+
+                <Card className="relative mt-8 overflow-hidden transition-all duration-300 hover:shadow-xl lg:mt-32">
+                  <CardContent className="p-6">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                          Step {index + 1}
+                        </span>
+                        <h3 className="text-xl font-semibold">{step.title}</h3>
+                      </div>
+                      <p className="mt-2 text-muted-foreground">{step.description}</p>
+                    </motion.div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
+
+        {/* Call to action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-base text-muted-foreground">
+            Ready to get started?{' '}
+            <a href="#pricing" className="font-medium text-primary hover:underline">
+              View pricing plans
+            </a>
+          </p>
+        </motion.div>
       </div>
     </div>
   );
