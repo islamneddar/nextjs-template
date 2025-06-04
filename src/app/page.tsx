@@ -7,6 +7,7 @@ import { Hero } from '@/components/landing/hero';
 import { Pricing } from '@/components/landing/pricing';
 import { Technologies } from '@/components/landing/technologies';
 import { Testimonials } from '@/components/landing/testimonials';
+import { TimeSavings } from '@/components/landing/time-savings';
 import { ValueProposition } from '@/components/landing/value-proposition';
 import landingContent from '@/config/landing-page.json';
 
@@ -19,6 +20,7 @@ export default function LandingPage() {
 
         <div className="space-y-16 py-16 sm:space-y-20 sm:py-20">
           <Technologies />
+          <TimeSavings />
           <ValueProposition />
           <Features data={landingContent.features} />
           <HowToUse />
