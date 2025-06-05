@@ -149,9 +149,12 @@ export default function LoginPage() {
                   </Label>
                 </div>
 
-                <Button variant="link" className="px-0 font-normal">
+                <Link
+                  href="/forgot-password"
+                  className="text-sm font-medium text-primary hover:text-primary/90"
+                >
                   Forgot your password?
-                </Button>
+                </Link>
               </div>
 
               <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>

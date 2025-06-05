@@ -23,6 +23,39 @@
       "icon": "🚀"
     }
   },
+  "howToUse": {
+    "title": "How to Use ShipAny",
+    "subtitle": "Get your SaaS up and running in four simple steps",
+    "steps": [
+      {
+        "title": "Purchase Boilerplate",
+        "description": "Get instant access to our production-ready codebase with all essential features.",
+        "icon": "💳"
+      },
+      {
+        "title": "Clone & Setup",
+        "description": "Follow our detailed documentation to clone the repository and set up your development environment.",
+        "icon": "📖"
+      },
+      {
+        "title": "Customize",
+        "description": "Modify the codebase to match your brand and add your unique business logic.",
+        "icon": "🎨"
+      },
+      {
+        "title": "Deploy",
+        "description": "Push to production with confidence using our deployment guides for Vercel.",
+        "icon": "🚀"
+      }
+    ],
+    "cta": {
+      "text": "Ready to get started?",
+      "link": {
+        "text": "View pricing plans",
+        "href": "#pricing"
+      }
+    }
+  },
   "features": {
     "title": "Everything you need to build a SaaS",
     "subtitle": "ShipAny comes with all the features you need to launch your SaaS product. Focus on your business logic, we'll handle the rest.",

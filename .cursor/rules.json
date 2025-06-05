@@ -61,13 +61,91 @@
           "toggle",
           "tooltip"
         ]
+      },
+      "patterns": {
+        "cards": {
+          "description": "Card component patterns",
+          "rules": [
+            "Use rounded-xl shadow-xl for elevated cards",
+            "Add ring-1 ring-gray-400/10 for subtle borders",
+            "Include overflow-hidden when using images"
+          ]
+        },
+        "buttons": {
+          "description": "Button patterns",
+          "rules": [
+            "Use size='lg' className='min-w-[200px] text-base' for main CTA buttons",
+            "Include ArrowRight icon for primary action buttons",
+            "Use variant='outline' for secondary actions"
+          ]
+        },
+        "badges": {
+          "description": "Badge patterns",
+          "rules": [
+            "Use variant='secondary' className='rounded-full px-4 py-1.5' for pill badges",
+            "Combine primary and muted-foreground colors for emphasis"
+          ]
+        },
+        "forms": {
+          "description": "Form component patterns",
+          "rules": [
+            "Use FormField with FormItem, FormLabel, FormControl structure",
+            "Include FormMessage for validation feedback",
+            "Add relative positioning for input icons/buttons"
+          ]
+        }
       }
     },
     "styling": {
       "framework": "Tailwind CSS",
       "theme": "Custom OKLCH color scheme",
       "darkMode": "class-based",
-      "customization": "Use CSS variables in globals.css"
+      "customization": "Use CSS variables in globals.css",
+      "layout": {
+        "spacing": {
+          "section": {
+            "description": "Standard section spacing",
+            "rules": [
+              "Use py-24 sm:py-32 for section vertical padding",
+              "Use mx-auto max-w-7xl px-6 lg:px-8 for section horizontal containment"
+            ]
+          },
+          "content": {
+            "description": "Content spacing within sections",
+            "rules": [
+              "Use gap-y-16 sm:gap-y-20 for large vertical gaps",
+              "Use space-y-4 for stacked elements",
+              "Use gap-x-3 for horizontal inline elements"
+            ]
+          }
+        },
+        "grid": {
+          "description": "Grid layout patterns",
+          "rules": [
+            "Use grid grid-cols-1 lg:grid-cols-2 for two-column layouts",
+            "Add lg:items-center for vertically centered grid items",
+            "Use lg:order-last/lg:order-first for responsive column ordering"
+          ]
+        }
+      },
+      "typography": {
+        "headings": {
+          "description": "Heading styles",
+          "rules": [
+            "Use text-3xl font-bold tracking-tight sm:text-4xl for section headings",
+            "Use text-4xl sm:text-6xl lg:text-7xl for hero headings",
+            "Include font-display class for display fonts"
+          ]
+        },
+        "body": {
+          "description": "Body text styles",
+          "rules": [
+            "Use text-lg text-muted-foreground for main paragraphs",
+            "Use text-sm text-muted-foreground for secondary text",
+            "Add leading-8 for improved readability in paragraphs"
+          ]
+        }
+      }
     },
     "formatting": {
       "tool": "Prettier",
@@ -102,7 +180,13 @@
       "Use CSS variables for theming",
       "Format code with Prettier before committing",
       "Run ESLint before committing",
-      "Install new shadcn/ui components using the CLI"
+      "Install new shadcn/ui components using the CLI",
+      "Include aria-hidden='true' for decorative elements",
+      "Ensure proper heading hierarchy",
+      "Provide alt text for all images",
+      "Use next/image component for optimized images",
+      "Implement mobile-first responsive design",
+      "Use framer-motion for component animations"
     ],
     "fileStructure": {
       "components": "src/components",

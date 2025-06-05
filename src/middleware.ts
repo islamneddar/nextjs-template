@@ -3,16 +3,17 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 
 // Auth pages that should be accessible to non-authenticated users
-const authPages = ['/login', '/register'];
+const authPages = ['/login', '/register', '/forgot-password', '/'];
 
 export default auth((req) => {
   const { nextUrl } = req;
+  console.log('nextUrl.pathname', nextUrl.pathname);
   const isLoggedIn = !!req.auth;
   const isAuthPage = authPages.some((page) => nextUrl.pathname.startsWith(page));
 
   // If on an auth page and logged in, redirect to dashboard
   if (isAuthPage && isLoggedIn) {
-    return NextResponse.redirect(new URL('/dashboard', nextUrl));
+    return NextResponse.next();
   }
 
   // If not on an auth page and not logged in, redirect to login
@@ -37,6 +38,8 @@ export const config = {
     // Include specific auth and app routes
     '/login',
     '/register',
+    '/forgot-password',
     '/dashboard/:path*',
+    '/',
   ],
 };

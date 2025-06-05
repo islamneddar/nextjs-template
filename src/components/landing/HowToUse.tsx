@@ -3,30 +3,7 @@
 import { motion } from 'framer-motion';
 
 import { Card, CardContent } from '@/components/ui/card';
-
-const steps = [
-  {
-    title: 'Purchase Boilerplate',
-    description: 'Get instant access to our production-ready codebase with all essential features.',
-    icon: '💳',
-  },
-  {
-    title: 'Clone & Setup',
-    description:
-      'Follow our detailed documentation to clone the repository and set up your development environment.',
-    icon: '📖',
-  },
-  {
-    title: 'Customize',
-    description: 'Modify the codebase to match your brand and add your unique business logic.',
-    icon: '🎨',
-  },
-  {
-    title: 'Deploy',
-    description: 'Push to production with confidence using our deployment guides for Vercel.',
-    icon: '🚀',
-  },
-];
+import landingContent from '@/config/landing-page.json';
 
 const container = {
   hidden: { opacity: 0 },
@@ -44,6 +21,8 @@ const item = {
 };
 
 export function HowToUse() {
+  const { title, subtitle, steps, cta } = landingContent.howToUse;
+
   return (
     <div className="relative">
       {/* Background gradient */}
@@ -65,12 +44,8 @@ export function HowToUse() {
           viewport={{ once: true }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            How to Use ShipAny
-          </h2>
-          <p className="mt-6 text-xl leading-8 text-muted-foreground">
-            Get your SaaS up and running in four simple steps
-          </p>
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{title}</h2>
+          <p className="mt-6 text-xl leading-8 text-muted-foreground">{subtitle}</p>
         </motion.div>
 
         {/* Timeline container */}
@@ -147,9 +122,9 @@ export function HowToUse() {
           className="mt-16 text-center"
         >
           <p className="text-base text-muted-foreground">
-            Ready to get started?{' '}
-            <a href="#pricing" className="font-medium text-primary hover:underline">
-              View pricing plans
+            {cta.text}{' '}
+            <a href={cta.link.href} className="font-medium text-primary hover:underline">
+              {cta.link.text}
             </a>
           </p>
         </motion.div>
