@@ -1,4 +1,3 @@
-import { ApiResponse } from '../lib/api/types';
 import { BaseApiClient } from './base-client';
 
 class ExternalApiClient extends BaseApiClient {
@@ -19,11 +18,6 @@ class ExternalApiClient extends BaseApiClient {
       ExternalApiClient.instance = new ExternalApiClient();
     }
     return ExternalApiClient.instance;
-  }
-
-  // Add any external-specific methods here
-  public async healthCheck(): Promise<ApiResponse> {
-    return this.get('/health');
   }
 }
 

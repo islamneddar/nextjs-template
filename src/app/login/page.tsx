@@ -20,7 +20,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { type LoginInput, loginSchema } from '@/lib/api/auth';
+import { type LoginInput, loginSchema } from '@/lib/api/auth/auth';
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);

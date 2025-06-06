@@ -19,7 +19,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { type RegisterInput, authService, registerSchema } from '@/lib/api/auth';
+import { type RegisterInput, authService, registerSchema } from '@/lib/api/auth/auth';
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);

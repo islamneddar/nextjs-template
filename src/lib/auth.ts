@@ -3,7 +3,7 @@ import type { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { z } from 'zod';
 
-import { authService } from './api/auth';
+import { authService } from './api/auth/auth';
 
 declare module 'next-auth' {
   interface Session {

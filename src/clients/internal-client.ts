@@ -1,4 +1,3 @@
-import { ApiResponse } from '../lib/api/types';
 import { BaseApiClient } from './base-client';
 
 class InternalApiClient extends BaseApiClient {
@@ -15,11 +14,6 @@ class InternalApiClient extends BaseApiClient {
       InternalApiClient.instance = new InternalApiClient();
     }
     return InternalApiClient.instance;
-  }
-
-  // Add any internal-specific methods here
-  public async validateSession(): Promise<ApiResponse> {
-    return this.get('/auth/session');
   }
 }
 
